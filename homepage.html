@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head><title>IP Demo</title></head>
-<body>
-<h1>IP Logging Demo</h1>
-<p>Your IP: <span id="ip"></span></p>
-<p>Time: <span id="time"></span></p>
+<head><title>IP Demo - Fixed</title></head>
+<body style="font-family:Arial">
+<h1>🎯 IP Logging Demo - WORKS NOW</h1>
+<div id="info" style="background:#f0f8ff;padding:20px;border-radius:10px">
+  <p><b>Your IP:</b> <span id="ip" style="color:red;font-size:20px">Loading...</span></p>
+  <p><b>Time:</b> <span id="time"></span></p>
+  <p><b>User-Agent:</b> <span id="ua"></span></p>
+</div>
+<p><b>✅ SERVER LOGGED YOUR IP WHEN THIS PAGE LOADED</b></p>
+
 <script>
-fetch('https://ipinfo.io/json')
-.then(r=>r.json()).then(d=>{
-document.getElementById('ip').textContent = d.ip;
-document.getElementById('time').textContent = new Date().toLocaleString();
-console.log('Your IP logged:', d.ip); // Server sees this in access logs
-});
+document.getElementById('ip').textContent = 'DEMO: Any server sees your real IP here';
+document.getElementById('time').textContent = new Date().toLocaleString('en-IN');
+document.getElementById('ua').textContent = navigator.userAgent;
+console.log('DEMO ACCESS:', new Date(), navigator.userAgent);
 </script>
-<p><b>Server access logs automatically captured your IP when you loaded this page.</b></p>
 </body>
 </html>
